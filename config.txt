@@ -1,0 +1,7 @@
+git config --global user.name Guilherme-Zamboni
+git config --global user.email guilherme1zamb@hotmail.com
+
+dotnet new mvc -o GranStore
+
+cd GranStore
+dotnet watch run
