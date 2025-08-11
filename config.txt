@@ -5,3 +5,5 @@ dotnet new mvc -o GranStore
 
 cd GranStore
 dotnet watch run
+
+ctrl + c
