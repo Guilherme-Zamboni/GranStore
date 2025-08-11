@@ -1,6 +1,9 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using GranStore.Models;
+using Microsoft.AspNetCore.OutputCaching;
+using System.Runtime.CompilerServices;
+using Microsoft.AspNetCore.Http.Connections;
 
 namespace GranStore.Controllers;
 
@@ -15,6 +18,30 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        Categoria categoria = new();
+        categoria.Id = 1;
+        categoria.Nome = "Eletrônicos";
+
+        Categoria categoria2 = new()
+        {
+            Id = 2,
+            Nome = "Roupas"
+        };
+
+        List<Produto> produtos = [
+            new() {
+                Id = 1,
+                Nome = "Notebook G15",
+                Descricao = "Lorem Ipsum",
+                QtdeEstoque = 5,
+                ValorCusto = 2000m,
+                ValorVenda = 5500m,
+                Categoria = categoria,
+            }
+        ];
+
+
+
         return View();
     }
 
