@@ -11,13 +11,12 @@ public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
 
+    private List<Produto> produtos;
+
     public HomeController(ILogger<HomeController> logger)
     {
         _logger = logger;
-    }
 
-    public IActionResult Index()
-    {
         Categoria categoria = new();
         categoria.Id = 1;
         categoria.Nome = "Eletrônicos";
@@ -39,11 +38,25 @@ public class HomeController : Controller
                 Categoria = categoria,
             }
         ];
+    }
+
+    public IActionResult Produto(int id)
+    {
+
+
+
+        var ptoduto = produtos.SingleOrDefault(p => p.Id == id);
+        return View();
+    }
+    public IActionResult Index()
+    {
+
 
 
 
         return View();
     }
+
 
     public IActionResult Privacy()
     {
